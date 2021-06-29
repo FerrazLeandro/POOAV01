@@ -71,13 +71,20 @@ public class AppPilotos {
             }else{
                 System.out.print("Informe o CPF: ");
                 String cpf = in.nextLine();
-                for (int i= 0; i < qtdCadastrados;  i++)
-		            if(pilotos[i].getCpf().equals(cpf)){
-			            System.out.println("Piloto encontrado:");
-                        System.out.println(pilotos[i].toString());
-		            } else {
-                        System.out.println("Piloto não encontrado");
-                    } 
+                boolean achou  = false;
+                Pessoa pessoaEncontrada = null;
+
+                for (int i= 0; !achou && i < qtdCadastrados;  i++){
+		            achou = (pilotos[i].getCpf().equals(cpf));
+                    pessoaEncontrada = pilotos[i];
+                }
+
+                if (achou == true) {
+                    System.out.println("\nPiloto encontrado:");
+                    System.out.println(pessoaEncontrada.toString());
+                } else {
+                    System.out.println("\nPiloto não encontrado!");
+                }
                 }
                 
                 
