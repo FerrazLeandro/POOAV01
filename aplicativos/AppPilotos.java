@@ -2,15 +2,14 @@ package aplicativos;
 
 import java.io.IOException;
 import java.util.Scanner;
-
-import classes.Pessoa;
+import classes.Piloto;
 
 public class AppPilotos {
     public static void main(String[] args) throws InterruptedException, IOException {
         final int MAX_ELEMENTOS = 1;
         int NOVO_TAMANHO = 0;
         int opcao, qtdCadastrados = 0;
-        Pessoa[] pilotos = new Pessoa[MAX_ELEMENTOS];
+        Piloto[] pilotos = new Piloto[MAX_ELEMENTOS];
         Scanner in = new Scanner(System.in);
 
         do {
@@ -34,13 +33,16 @@ public class AppPilotos {
                 }
 
                 //Cadastre seu piloto aqui
-                pilotos[qtdCadastrados] = new Pessoa();
+                pilotos[qtdCadastrados] = new Piloto();
                 
                 System.out.print("\nNome: ");
                 pilotos[qtdCadastrados].setNome(in.nextLine());
 
                 System.out.print("CPF: ");
                 pilotos[qtdCadastrados].setCpf(in.nextLine());
+
+                System.out.print("Matrícula: ");
+                pilotos[qtdCadastrados].setMatricula(in.nextLine());
 
                 System.out.println("\nPiloto cadastrado com sucesso.");
 
@@ -71,8 +73,9 @@ public class AppPilotos {
             }else{
                 System.out.print("Informe o CPF: ");
                 String cpf = in.nextLine();
+
                 boolean achou  = false;
-                Pessoa pessoaEncontrada = null;
+                Piloto pessoaEncontrada = null;
 
                 for (int i= 0; !achou && i < qtdCadastrados;  i++){
 		            achou = (pilotos[i].getCpf().equals(cpf));
@@ -94,7 +97,7 @@ public class AppPilotos {
                in.nextLine(); // Tira o ENTER que ficou na entrada na instrução anterior
 
                //Declaração no novo array
-               Pessoa[] newarray = new Pessoa[NOVO_TAMANHO];
+               Piloto[] newarray = new Piloto[NOVO_TAMANHO];
 
                 //Copia os dados do antigo array para o novo 
                 System.arraycopy(pilotos, 0, newarray, 0, Math.min (pilotos.length, newarray.length));
