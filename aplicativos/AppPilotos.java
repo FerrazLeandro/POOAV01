@@ -6,7 +6,7 @@ import classes.Piloto;
 
 public class AppPilotos {
     public static void main(String[] args) throws InterruptedException, IOException {
-        final int MAX_ELEMENTOS = 1;
+        final int MAX_ELEMENTOS = 20;
         int NOVO_TAMANHO = 0;
         int opcao, qtdCadastrados = 0;
         Piloto[] pilotos = new Piloto[MAX_ELEMENTOS];
